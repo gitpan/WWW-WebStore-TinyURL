@@ -1,0 +1,63 @@
+NAME
+    WWW::WebStore::TinyURL - Store data and files in TinyURLs
+
+SYNOPSIS
+     use strict;
+     use WWW::WebStore::TinyURL
+     
+ my $store = WWW::WebStore::TinyURL->new("shopping_list.txt");
+     my $url = $store->url;
+     my $shopping_list = $store->data;
+     
+ my $store2 = WWW::WebStore::TinyURL->new("http://tinyurl.com/df97u");
+     my $data2 = $store->data;
+     
+ my $data3 = WWW::WebStore::TinyURL->new($url)->data;
+
+DESCRIPTION
+    WWW::WebStore::TinyURL will allow you to store data or small files
+    within a *TinyURL*, and retrieve it again at a later date using the
+    *TinyURL* as a key.
+
+METHODS
+  new
+     my $store = WWW::WebStore::TinyURL->new("http://tinyurl/df97u");
+     my $store = WWW::WebStore::TinyURL->new("/var/tmp/filename.foo");
+     my $store = WWW::WebStore::TinyURL->new(\$data);
+
+    Creates a new store object. Accepts a single argument which can be a
+    *TinyURL* (in order to retrieve data from a previously stored object),
+    or a filename or a scalar reference to a string (which will be stored in
+    a *TinyURL*).
+
+  url
+     my $tinyurl = $store->url;
+
+    Return the *TinyURL* of the stored object.
+
+  data
+     my $data = $store->data;
+
+    Return the data from the stored object.
+
+VERSION
+    $Id: TinyURL.pm 497 2006-05-24 16:35:59Z nicolaw $
+
+AUTHOR
+    Nicola Worthington <nicolaw@cpan.org>
+
+    <http://perlgirl.org.uk>
+
+COPYRIGHT
+    Copyright 2006 Nicola Worthington.
+
+    This software is licensed under The Apache Software License, Version
+    2.0.
+
+    <http://www.apache.org/licenses/LICENSE-2.0>
+
+DISCLAIMER
+    At the time of writing this software does not break www.tinyurl.com's
+    terms of use. However, don't coming running to me if you use this module
+    inappropriately and get told off. :)
+
